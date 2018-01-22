@@ -36,6 +36,7 @@ set(LIBRARY_SOURCES
   man.c
   xml.c
   html.c
+  erlang.c
   commonmark.c
   latex.c
   houdini_href_e.c

@@ -1,4 +1,4 @@
-.TH cmark 3 "June 02, 2017" "LOCAL" "Library Functions Manual"
+.TH cmark 3 "January 22, 2018" "LOCAL" "Library Functions Manual"
 .SH
 NAME
 .PP
@@ -673,6 +673,14 @@ responsibility to free the returned buffer.
 
 .PP
 Render a \f[I]node\f[] tree as a LaTeX document. It is the caller's
+responsibility to free the returned buffer.
+
+.PP
+\fIchar *\f[] \fBcmark_render_erlang\f[](\fIcmark_node *root\f[], \fIint options\f[])
+
+.PP
+Render a \f[I]node\f[] tree as an Erlang fragment. It is up to the user
+to add an appropriate header and footer. It is the caller's
 responsibility to free the returned buffer.
 
 .SS

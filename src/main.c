@@ -18,14 +18,15 @@ typedef enum {
   FORMAT_XML,
   FORMAT_MAN,
   FORMAT_COMMONMARK,
-  FORMAT_LATEX
+  FORMAT_LATEX,
+  FORMAT_ERLANG
 } writer_format;
 
 void print_usage() {
   printf("Usage:   cmark [FILE*]\n");
   printf("Options:\n");
   printf("  --to, -t FORMAT  Specify output format (html, xml, man, "
-         "commonmark, latex)\n");
+         "commonmark, latex, erlang)\n");
   printf("  --width WIDTH    Specify wrap width (default 0 = nowrap)\n");
   printf("  --sourcepos      Include source position attribute\n");
   printf("  --hardbreaks     Treat newlines as hard line breaks\n");
@@ -56,6 +57,9 @@ static void print_document(cmark_node *document, writer_format writer,
     break;
   case FORMAT_LATEX:
     result = cmark_render_latex(document, options, width);
+    break;
+  case FORMAT_ERLANG:
+    result = cmark_render_erlang(document, options);
     break;
   default:
     fprintf(stderr, "Unknown format %d\n", writer);
@@ -131,6 +135,8 @@ int main(int argc, char *argv[]) {
           writer = FORMAT_COMMONMARK;
         } else if (strcmp(argv[i], "latex") == 0) {
           writer = FORMAT_LATEX;
+        } else if (strcmp(argv[i], "erlang") == 0) {
+          writer = FORMAT_ERLANG;
         } else {
           fprintf(stderr, "Unknown format %s\n", argv[i]);
           exit(1);

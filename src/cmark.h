@@ -532,6 +532,13 @@ char *cmark_render_commonmark(cmark_node *root, int options, int width);
 CMARK_EXPORT
 char *cmark_render_latex(cmark_node *root, int options, int width);
 
+/** Render a 'node' tree as an Erlang fragment.  It is up to the user
+ * to add an appropriate header and footer. It is the caller's
+ * responsibility to free the returned buffer.
+ */
+CMARK_EXPORT
+char *cmark_render_erlang(cmark_node *root, int options);
+
 /**
  * ## Options
  */
