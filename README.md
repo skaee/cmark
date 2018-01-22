@@ -1,3 +1,8 @@
+Repository modification
+=======================
+
+Add export capability in erlang terms.
+
 cmark
 =====
 
